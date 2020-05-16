@@ -1,4 +1,10 @@
+import 'package:bogazicionline/background.dart';
+import 'package:bogazicionline/screens/campaigns_screen.dart';
+import 'package:bogazicionline/screens/forum_screen.dart';
+import 'package:bogazicionline/screens/notes_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../bottom_navigation.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,17 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xfff7f7f7),
       body: Stack(
         children: <Widget>[
-          Container(
-            height: MediaQuery.of(context).size.height*(4/10),
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                image: DecorationImage(
-                  image: AssetImage('assets/images/bg5.jpeg'),
-                  fit: BoxFit.fill,
-                )
-            ),
-          ),
+          BackGround('assets/images/bg5.jpeg'),
           ListView(
             children: <Widget>[
               Center(
@@ -31,18 +27,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20.0),
                       child: Container(
-                        width: MediaQuery.of(context).size.width * (9/10),
+                        width: MediaQuery.of(context).size.width * (9 / 10),
                         child: Row(
                           children: <Widget>[
                             CircleAvatar(
-                              backgroundImage: AssetImage('assets/images/girl.png'),
+                              backgroundImage:
+                                  AssetImage('assets/images/girl.png'),
                               radius: 25,
                             ),
-                            Text(' ANASAYFA',style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                            ),)
+                            Text(
+                              ' ANASAYFA',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
                           ],
                         ),
                       ),
@@ -51,28 +51,81 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.all(8.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => NoteScreen()));
+                            },
+                            child: Container(
+                              width:
+                                  MediaQuery.of(context).size.width * (8 / 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CampaignsPage()));
+                                    },
+                                    child: Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              (1.5 / 10),
+                                      width: MediaQuery.of(context).size.width *
+                                          (3 / 10),
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  'assets/images/kampanyalar.png'))),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: MediaQuery.of(context).size.height *
+                                        (1.5 / 10),
+                                    width: MediaQuery.of(context).size.width *
+                                        (3 / 10),
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/images/notlar.png'))),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            width: MediaQuery.of(context).size.width * (8/10),
+                            width: MediaQuery.of(context).size.width * (8 / 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
                                 Container(
-                                  height: MediaQuery.of(context).size.height * (1.5/10),
-                                  width: MediaQuery.of(context).size.width * (3/10),
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage('assets/images/kampanyalar.png')
-                                    )
-                                  ),
-                                ),
-                                Container(
-                                  height: MediaQuery.of(context).size.height * (1.5/10),
-                                  width: MediaQuery.of(context).size.width * (3/10),
+                                  height: MediaQuery.of(context).size.height *
+                                      (1.5 / 10),
+                                  width: MediaQuery.of(context).size.width *
+                                      (3 / 10),
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
-                                          image: AssetImage('assets/images/notlar.png')
-                                      )
-                                  ),
+                                          image: AssetImage(
+                                              'assets/images/al sat.png'))),
+                                ),
+                                Container(
+                                  height: MediaQuery.of(context).size.height *
+                                      (1.5 / 10),
+                                  width: MediaQuery.of(context).size.width *
+                                      (3 / 10),
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/etkinlikler.png'))),
                                 )
                               ],
                             ),
@@ -81,27 +134,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            width: MediaQuery.of(context).size.width * (8/10),
+                            width: MediaQuery.of(context).size.width * (8 / 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
                                 Container(
-                                  height: MediaQuery.of(context).size.height * (1.5/10),
-                                  width: MediaQuery.of(context).size.width * (3/10),
+                                  height: MediaQuery.of(context).size.height *
+                                      (1.5 / 10),
+                                  width: MediaQuery.of(context).size.width *
+                                      (3 / 10),
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
-                                          image: AssetImage('assets/images/al sat.png')
-                                      )
-                                  ),
+                                          image: AssetImage(
+                                              'assets/images/homebuddy.png'))),
                                 ),
                                 Container(
-                                  height: MediaQuery.of(context).size.height * (1.5/10),
-                                  width: MediaQuery.of(context).size.width * (3/10),
+                                  height: MediaQuery.of(context).size.height *
+                                      (1.5 / 10),
+                                  width: MediaQuery.of(context).size.width *
+                                      (3 / 10),
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
-                                          image: AssetImage('assets/images/etkinlikler.png')
-                                      )
-                                  ),
+                                          image: AssetImage(
+                                              'assets/images/duyurular.png'))),
                                 )
                               ],
                             ),
@@ -110,57 +165,39 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            width: MediaQuery.of(context).size.width * (8/10),
+                            width: MediaQuery.of(context).size.width * (8 / 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
                                 Container(
-                                  height: MediaQuery.of(context).size.height * (1.5/10),
-                                  width: MediaQuery.of(context).size.width * (3/10),
+                                  height: MediaQuery.of(context).size.height *
+                                      (1.5 / 10),
+                                  width: MediaQuery.of(context).size.width *
+                                      (3 / 10),
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
-                                          image: AssetImage('assets/images/homebuddy.png')
-                                      )
+                                          image: AssetImage(
+                                              'assets/images/takvim.png'))),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ForumScreen()));
+                                  },
+                                  child: Container(
+                                    height: MediaQuery.of(context).size.height *
+                                        (1.5 / 10),
+                                    width: MediaQuery.of(context).size.width *
+                                        (3 / 10),
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/images/forum.png'))),
                                   ),
                                 ),
-                                Container(
-                                  height: MediaQuery.of(context).size.height * (1.5/10),
-                                  width: MediaQuery.of(context).size.width * (3/10),
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage('assets/images/duyurular.png')
-                                      )
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * (8/10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: <Widget>[
-                                Container(
-                                  height: MediaQuery.of(context).size.height * (1.5/10),
-                                  width: MediaQuery.of(context).size.width * (3/10),
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage('assets/images/takvim.png')
-                                      )
-                                  ),
-                                ),
-                                Container(
-                                  height: MediaQuery.of(context).size.height * (1.5/10),
-                                  width: MediaQuery.of(context).size.width * (3/10),
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage('assets/images/forum.png')
-                                      )
-                                  ),
-                                )
                               ],
                             ),
                           ),
@@ -174,15 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      bottomNavigationBar: Container(
-        height: MediaQuery.of(context).size.height * (1.2/10),
-        width: MediaQuery.of(context).size.width * (3/10),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/bottom.png')
-            )
-        ),
-      ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }

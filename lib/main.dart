@@ -1,10 +1,7 @@
-import 'package:bogazicionline/screens/genderScreen.dart';
-import 'package:bogazicionline/screens/home_screen.dart';
-import 'package:bogazicionline/screens/login_screen.dart';
-import 'package:bogazicionline/screens/welcome_screen.dart';
+import 'package:bogazicionline/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -22,7 +19,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         cursorColor: Color(0xff9013ed),
       ),
-      home: WelcomeScreen(),
+      home: ScreenSplash(),
     );
   }
 }
